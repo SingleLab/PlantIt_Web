@@ -36,6 +36,22 @@
             padding: 40px 20px;
         }
 
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            border: 4px solid #6fbf73;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
         .logo {
             font-size: 2.5em;
             color: #6fbf73;
@@ -189,6 +205,12 @@
         }
 
         @media (max-width: 768px) {
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+
             .logo {
                 font-size: 1.8em;
             }
@@ -234,6 +256,13 @@
         @media (max-width: 480px) {
             .container {
                 padding: 20px 15px;
+            }
+
+            .app-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+                border: 3px solid #6fbf73;
             }
 
             .logo {
@@ -286,12 +315,15 @@
     
     <div class="container">
         <header>
+            <div class="app-icon">
+                <img src="https://github.com/user-attachments/assets/2c0a00ef-b2a3-4848-b069-db0cebbc6705" alt="Plant It App Icon">
+            </div>
             <h1 class="logo">Plant It:<br>Build your own garden</h1>
             <p class="tagline">🌱 Harmony relax puzzle game</p>
         </header>
 
         <div class="game-showcase">
-            <h2>Pixel Garden Puzzle</h2>
+            <h2>Plant It</h2>
             <p class="description">
                 A relaxing pixel art puzzle game where gardening meets thoughtful challenges. Each level is a small living canvas where you place plants wisely and shape a peaceful garden at your own pace.
             </p>
@@ -303,12 +335,12 @@
                     <li>Grow and arrange plants to complete handcrafted levels</li>
                     <li>Charming pixel art visuals and a calming atmosphere</li>
                     <li>No timers, no pressure, play offline anytime</li>
-                    <li>Build your own garden</li>
+                    <li>Full creativity in Playground mode</li>
                 </ul>
             </div>
 
             <p class="description">
-                Designed for calm, not stress, <strong>Pixel Garden Puzzle</strong> is a cozy alternative to fast-paced puzzle games. Plant, solve, and unwind.
+                Designed for calm, not stress, <strong>Plant It</strong> is a cozy alternative to fast-paced puzzle games. Plant, solve, and unwind.
             </p>
         </div>
 
@@ -322,7 +354,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2025 Plant It - Pixel Garden Puzzle</p>
+            <p>&copy; 2025 Plant It</p>
             <p style="margin-top: 10px;">
                 Contact: <a href="mailto:shevchenko.julia.96@gmail.com">shevchenko.julia.96@gmail.com</a>
             </p>
