@@ -209,6 +209,9 @@
         // App Store URLs
         const IOS_URL = 'https://apps.apple.com/es/app/plant-it-harmony-game/id6757153566';
         const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.singlelab.plant_it';
+        
+        // Delay before showing manual links (in milliseconds)
+        const FALLBACK_DELAY_MS = 1000;
 
         // Detect platform
         function detectPlatform() {
@@ -241,12 +244,12 @@
                 setTimeout(() => {
                     document.querySelector('.loading').style.display = 'none';
                     document.getElementById('manualLinks').classList.add('show');
-                }, 1000);
+                }, FALLBACK_DELAY_MS);
             }
         }
 
-        // Execute redirect on page load
-        window.addEventListener('load', redirectToStore);
+        // Execute redirect as soon as DOM is ready for faster response
+        window.addEventListener('DOMContentLoaded', redirectToStore);
     </script>
 </body>
 </html>
