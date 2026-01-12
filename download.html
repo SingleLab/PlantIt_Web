@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download Plant It - A relaxing pixel art puzzle game">
+    <title>Download Plant It - Pixel Garden Puzzle Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #6fbf73;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px #2d5016;
+            line-height: 1.4;
+        }
+
+        .loading {
+            font-size: 0.8em;
+            color: #8fdf95;
+            margin: 30px 0;
+            line-height: 2;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 4px solid #2d5016;
+            border-top: 4px solid #6fbf73;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .manual-links {
+            display: none;
+            margin-top: 40px;
+        }
+
+        .manual-links.show {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #6fbf73;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.7em;
+            border: 3px solid #8fdf95;
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #8fdf95;
+            transform: translate(2px, 2px);
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .button:active {
+            transform: translate(5px, 5px);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            color: #6fbf73;
+            text-decoration: none;
+            font-size: 0.6em;
+        }
+
+        .back-link:hover {
+            color: #8fdf95;
+            text-decoration: underline;
+        }
+
+        .pixel-art-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 4px, #6fbf73 4px, #6fbf73 8px),
+                repeating-linear-gradient(90deg, transparent, transparent 4px, #6fbf73 4px, #6fbf73 8px);
+        }
+
+        @media (max-width: 768px) {
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .loading {
+                font-size: 0.7em;
+            }
+
+            .button {
+                font-size: 0.6em;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 1.2em;
+            }
+
+            .loading {
+                font-size: 0.6em;
+            }
+
+            .button {
+                font-size: 0.55em;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pixel-art-bg"></div>
+    
+    <div class="container">
+        <div class="app-icon">
+            <img src="https://github.com/user-attachments/assets/2c0a00ef-b2a3-4848-b069-db0cebbc6705" alt="Plant It App Icon">
+        </div>
+        <h1>Plant It</h1>
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Redirecting to your app store...</p>
+        </div>
+        
+        <div class="manual-links" id="manualLinks">
+            <p class="loading">Choose your platform:</p>
+            <a href="https://apps.apple.com/es/app/plant-it-harmony-game/id6757153566" class="button">Download on iOS</a>
+            <a href="https://play.google.com/store/apps/details?id=com.singlelab.plant_it" class="button">Download on Android</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        // App Store URLs
+        const IOS_URL = 'https://apps.apple.com/es/app/plant-it-harmony-game/id6757153566';
+        const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.singlelab.plant_it';
+        
+        // Delay before showing manual links (in milliseconds)
+        const FALLBACK_DELAY_MS = 1000;
+
+        // Detect platform
+        function detectPlatform() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return 'ios';
+            }
+            
+            // Android detection
+            if (/android/i.test(userAgent)) {
+                return 'android';
+            }
+            
+            // Unknown platform
+            return 'unknown';
+        }
+
+        // Redirect to appropriate store
+        function redirectToStore() {
+            const platform = detectPlatform();
+            
+            if (platform === 'ios') {
+                window.location.href = IOS_URL;
+            } else if (platform === 'android') {
+                window.location.href = ANDROID_URL;
+            } else {
+                // Show manual links if platform cannot be detected
+                setTimeout(() => {
+                    document.querySelector('.loading').style.display = 'none';
+                    document.getElementById('manualLinks').classList.add('show');
+                }, FALLBACK_DELAY_MS);
+            }
+        }
+
+        // Execute redirect as soon as DOM is ready for faster response
+        window.addEventListener('DOMContentLoaded', redirectToStore);
+    </script>
+</body>
+</html>
