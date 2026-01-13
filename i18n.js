@@ -24,6 +24,7 @@ const translations = {
         'privacy-button': 'Privacy Policy',
         'footer-copyright': '© 2025 Plant It',
         'footer-contact': 'Contact: ',
+        'footer-barcelona': 'The game was made in heart of Catalonia - Barcelona, so it\'s available in Catalan language!',
         
         // Download page
         'download-meta-description': 'Download Plant It - A relaxing pixel art puzzle game',
@@ -89,6 +90,7 @@ const translations = {
         'privacy-button': 'Política de Privacitat',
         'footer-copyright': '© 2025 Plant It',
         'footer-contact': 'Contacte: ',
+        'footer-barcelona': 'El joc es va fer al cor de Catalunya - Barcelona, així que està disponible en català!',
         
         // Download page
         'download-meta-description': 'Descarrega Plant It - Un relaxant joc de puzles amb art de píxels',
