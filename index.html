@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plant It - A relaxing pixel art puzzle game where gardening meets thoughtful challenges">
+    <meta name="description" content="Plant It - A relaxing pixel art puzzle game where gardening meets thoughtful challenges" data-i18n="meta-description">
     <meta name="keywords" content="pixel art, puzzle game, gardening, relaxing, offline game">
-    <title>Plant It - Pixel Garden Puzzle Game</title>
+    <title data-i18n="page-title">Plant It - Pixel Garden Puzzle Game</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -239,7 +239,47 @@
                 repeating-linear-gradient(90deg, transparent, transparent 4px, #6fbf73 4px, #6fbf73 8px);
         }
 
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-toggle button {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.7em;
+            padding: 10px 15px;
+            background-color: #6fbf73;
+            color: #1a1a1a;
+            border: 3px solid #8fdf95;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s;
+        }
+
+        .lang-toggle button:hover {
+            background-color: #8fdf95;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .lang-toggle button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        }
+
         @media (max-width: 768px) {
+            .lang-toggle {
+                top: 15px;
+                right: 15px;
+            }
+
+            .lang-toggle button {
+                font-size: 0.6em;
+                padding: 8px 12px;
+            }
+
             .app-icon {
                 width: 100px;
                 height: 100px;
@@ -298,6 +338,16 @@
         }
 
         @media (max-width: 480px) {
+            .lang-toggle {
+                top: 10px;
+                right: 10px;
+            }
+
+            .lang-toggle button {
+                font-size: 0.5em;
+                padding: 6px 10px;
+            }
+
             .container {
                 padding: 20px 15px;
             }
@@ -365,33 +415,37 @@
 <body>
     <div class="pixel-art-bg"></div>
     
+    <div class="lang-toggle">
+        <button id="lang-toggle" onclick="LanguageManager.toggleLanguage()">CAT</button>
+    </div>
+    
     <div class="container">
         <header>
             <div class="app-icon">
                 <img src="https://github.com/user-attachments/assets/2c0a00ef-b2a3-4848-b069-db0cebbc6705" alt="Plant It App Icon">
             </div>
-            <h1 class="logo">Plant It:<br>Build your own garden</h1>
-            <p class="tagline">🌱 Harmony relax puzzle game</p>
+            <h1 class="logo" data-i18n="logo" data-i18n-html>Plant It:<br>Build your own garden</h1>
+            <p class="tagline" data-i18n="tagline">🌱 Harmony relax puzzle game</p>
         </header>
 
         <div class="game-showcase">
-            <h2>Plant It</h2>
-            <p class="description">
+            <h2 data-i18n="heading">Plant It</h2>
+            <p class="description" data-i18n="description-1">
                 A relaxing pixel art puzzle game where gardening meets thoughtful challenges. Each level is a small living canvas where you place plants wisely and shape a peaceful garden at your own pace.
             </p>
 
             <div class="features">
-                <h3>Features</h3>
+                <h3 data-i18n="features-heading">Features</h3>
                 <ul>
-                    <li>Relaxing puzzle gameplay inspired by gardening</li>
-                    <li>Grow and arrange plants to complete handcrafted levels</li>
-                    <li>Charming pixel art visuals and a calming atmosphere</li>
-                    <li>No timers, no pressure, play offline anytime</li>
-                    <li>Full creativity in Playground mode</li>
+                    <li data-i18n="feature-1">Relaxing puzzle gameplay inspired by gardening</li>
+                    <li data-i18n="feature-2">Grow and arrange plants to complete handcrafted levels</li>
+                    <li data-i18n="feature-3">Charming pixel art visuals and a calming atmosphere</li>
+                    <li data-i18n="feature-4">No timers, no pressure, play offline anytime</li>
+                    <li data-i18n="feature-5">Full creativity in Playground mode</li>
                 </ul>
             </div>
 
-            <p class="description">
+            <p class="description" data-i18n="description-2" data-i18n-html>
                 Designed for calm, not stress, <strong>Plant It</strong> is a cozy alternative to fast-paced puzzle games. Plant, solve, and unwind.
             </p>
         </div>
@@ -399,7 +453,7 @@
         <div class="pixel-divider"></div>
 
         <div class="screenshots-section">
-            <h3>Gameplay Screenshots</h3>
+            <h3 data-i18n="screenshots-heading">Gameplay Screenshots</h3>
             <div class="screenshots-grid">
                 <div class="screenshot">
                     <img src="https://github.com/user-attachments/assets/4b1b70a4-e573-4152-8fda-6b89384b6714" alt="Plant It Gameplay - Building garden with plants and water">
@@ -416,19 +470,20 @@
         <div class="pixel-divider"></div>
 
         <div class="cta-section">
-            <p class="cta-text">
+            <p class="cta-text" data-i18n="cta-text">
                 Ready to create your pixel garden?
             </p>
-            <a href="download.html" class="button">Download Now</a>
-            <a href="privacy-policy.html" class="button">Privacy Policy</a>
+            <a href="download.html" class="button" data-i18n="download-button">Download Now</a>
+            <a href="privacy-policy.html" class="button" data-i18n="privacy-button">Privacy Policy</a>
         </div>
 
         <footer>
-            <p>&copy; 2025 Plant It</p>
+            <p data-i18n="footer-copyright">&copy; 2025 Plant It</p>
             <p style="margin-top: 10px;">
-                Contact: <a href="mailto:shevchenko.julia.96@gmail.com">shevchenko.julia.96@gmail.com</a>
+                <span data-i18n="footer-contact">Contact: </span><a href="mailto:shevchenko.julia.96@gmail.com">shevchenko.julia.96@gmail.com</a>
             </p>
         </footer>
     </div>
+    <script src="i18n.js"></script>
 </body>
 </html>

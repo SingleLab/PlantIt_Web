@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Plant It - A relaxing pixel art puzzle game">
-    <title>Download Plant It - Pixel Garden Puzzle Game</title>
+    <meta name="description" content="Download Plant It - A relaxing pixel art puzzle game" data-i18n="download-meta-description">
+    <title data-i18n="download-page-title">Download Plant It - Pixel Garden Puzzle Game</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -139,7 +139,47 @@
                 repeating-linear-gradient(90deg, transparent, transparent 4px, #6fbf73 4px, #6fbf73 8px);
         }
 
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-toggle button {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.7em;
+            padding: 10px 15px;
+            background-color: #6fbf73;
+            color: #1a1a1a;
+            border: 3px solid #8fdf95;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s;
+        }
+
+        .lang-toggle button:hover {
+            background-color: #8fdf95;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .lang-toggle button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        }
+
         @media (max-width: 768px) {
+            .lang-toggle {
+                top: 15px;
+                right: 15px;
+            }
+
+            .lang-toggle button {
+                font-size: 0.6em;
+                padding: 8px 12px;
+            }
+
             .app-icon {
                 width: 100px;
                 height: 100px;
@@ -161,6 +201,16 @@
         }
 
         @media (max-width: 480px) {
+            .lang-toggle {
+                top: 10px;
+                right: 10px;
+            }
+
+            .lang-toggle button {
+                font-size: 0.5em;
+                padding: 6px 10px;
+            }
+
             .app-icon {
                 width: 80px;
                 height: 80px;
@@ -186,23 +236,27 @@
 <body>
     <div class="pixel-art-bg"></div>
     
+    <div class="lang-toggle">
+        <button id="lang-toggle" onclick="LanguageManager.toggleLanguage()">CAT</button>
+    </div>
+    
     <div class="container">
         <div class="app-icon">
             <img src="https://github.com/user-attachments/assets/2c0a00ef-b2a3-4848-b069-db0cebbc6705" alt="Plant It App Icon">
         </div>
-        <h1>Plant It</h1>
+        <h1 data-i18n="download-heading">Plant It</h1>
         <div class="loading">
             <div class="spinner"></div>
-            <p>Redirecting to your app store...</p>
+            <p data-i18n="download-loading">Redirecting to your app store...</p>
         </div>
         
         <div class="manual-links" id="manualLinks">
-            <p class="loading">Choose your platform:</p>
-            <a href="https://apps.apple.com/es/app/plant-it-harmony-game/id6757153566" class="button">Download on iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.singlelab.plant_it" class="button">Download on Android</a>
+            <p class="loading" data-i18n="download-manual-text">Choose your platform:</p>
+            <a href="https://apps.apple.com/es/app/plant-it-harmony-game/id6757153566" class="button" data-i18n="download-ios-button">Download on iOS</a>
+            <a href="https://play.google.com/store/apps/details?id=com.singlelab.plant_it" class="button" data-i18n="download-android-button">Download on Android</a>
         </div>
 
-        <a href="index.html" class="back-link">← Back to Home</a>
+        <a href="index.html" class="back-link" data-i18n="back-link">← Back to Home</a>
     </div>
 
     <script>
@@ -251,5 +305,6 @@
         // Execute redirect as soon as DOM is ready for faster response
         window.addEventListener('DOMContentLoaded', redirectToStore);
     </script>
+    <script src="i18n.js"></script>
 </body>
 </html>
