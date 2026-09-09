@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0d">
+    <meta name="description" content="Runise is a focused running companion for tracking distance, pace, heart rate, and time on iPhone and Apple Watch.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Runise — Run with less noise">
+    <meta property="og:description" content="A focused running companion for the route, the rhythm, and what comes next.">
+    <meta property="og:url" content="https://singlelab.cat/runise/">
+    <meta property="og:image" content="https://singlelab.cat/runise/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Runise — Run with less noise">
+    <meta name="twitter:description" content="A focused running companion for the route, the rhythm, and what comes next.">
+    <meta name="twitter:image" content="https://singlelab.cat/runise/og.png">
+    <link rel="canonical" href="https://singlelab.cat/runise/">
+    <link rel="icon" type="image/png" href="assets/runise-icon.png">
+    <link rel="apple-touch-icon" href="assets/runise-icon.png">
+    <title>Runise — Run with less noise</title>
+    <style>
+        :root {
+            --ink: #0b0b0d;
+            --ink-soft: #121216;
+            --panel: #17171c;
+            --line: rgba(255, 255, 255, 0.12);
+            --white: #f8f6f2;
+            --muted: #aaa6a2;
+            --coral: #ff705f;
+            --coral-soft: #ff9386;
+            --max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-width: 320px;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 82% 8%, rgba(255, 112, 95, 0.12), transparent 25rem),
+                var(--ink);
+            color: var(--white);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .shell {
+            width: min(calc(100% - 40px), var(--max));
+            margin-inline: auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 88px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .brand-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .nav-link {
+            color: var(--muted);
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: var(--white);
+        }
+
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.72fr);
+            gap: clamp(48px, 8vw, 120px);
+            align-items: center;
+            min-height: calc(100svh - 88px);
+            padding: 84px 0 96px;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 28px;
+            color: var(--coral-soft);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 2px;
+            background: var(--coral);
+        }
+
+        h1 {
+            max-width: 760px;
+            margin: 0;
+            font-size: clamp(4rem, 9vw, 8.5rem);
+            font-weight: 650;
+            letter-spacing: -0.075em;
+            line-height: 0.88;
+        }
+
+        h1 span {
+            color: var(--coral);
+        }
+
+        .lede {
+            max-width: 590px;
+            margin: 36px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.05rem, 2vw, 1.32rem);
+            line-height: 1.65;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 42px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 24px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background: var(--coral);
+            color: #160b09;
+            font-size: 0.9rem;
+            font-weight: 750;
+            text-decoration: none;
+            transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+            background: var(--coral-soft);
+        }
+
+        .button.secondary {
+            border-color: var(--line);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .button.secondary:hover,
+        .button.secondary:focus-visible {
+            border-color: rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-media {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 680px;
+            margin: 0;
+        }
+
+        .image-halo,
+        .image-halo::before {
+            position: absolute;
+            border: 1px solid rgba(255, 112, 95, 0.24);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .image-halo {
+            width: 540px;
+            height: 540px;
+        }
+
+        .image-halo::before {
+            inset: 54px;
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-shot {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 405px);
+            height: auto;
+            filter: drop-shadow(0 38px 60px rgba(0, 0, 0, 0.5));
+        }
+
+        .section {
+            padding: 120px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 40px;
+            margin-bottom: 70px;
+        }
+
+        .section-index {
+            color: var(--coral);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            max-width: 760px;
+            margin: 0;
+            font-size: clamp(2.5rem, 5.5vw, 5.4rem);
+            font-weight: 610;
+            letter-spacing: -0.06em;
+            line-height: 0.98;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--line);
+        }
+
+        .feature {
+            min-height: 270px;
+            padding: 32px 30px 34px 0;
+            border-right: 1px solid var(--line);
+        }
+
+        .feature + .feature {
+            padding-left: 30px;
+        }
+
+        .feature:last-child {
+            border-right: 0;
+        }
+
+        .feature-number {
+            color: var(--coral);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
+        }
+
+        .feature h3 {
+            margin: 64px 0 14px;
+            font-size: 1.35rem;
+            font-weight: 620;
+            letter-spacing: -0.025em;
+        }
+
+        .feature p {
+            max-width: 290px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+
+        .watch-section {
+            padding: 44px 0 120px;
+        }
+
+        .watch-panel {
+            display: grid;
+            grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(44px, 8vw, 110px);
+            align-items: center;
+            overflow: hidden;
+            min-height: 680px;
+            padding: clamp(34px, 6vw, 78px);
+            border: 1px solid var(--line);
+            border-radius: 36px;
+            background:
+                radial-gradient(circle at 27% 54%, rgba(255, 112, 95, 0.2), transparent 24rem),
+                var(--ink-soft);
+        }
+
+        .watch-shot-wrap {
+            display: grid;
+            place-items: center;
+            min-height: 570px;
+        }
+
+        .watch-shot {
+            width: min(100%, 390px);
+            height: auto;
+            filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.5));
+        }
+
+        .watch-copy h2 {
+            margin-top: 24px;
+            font-size: clamp(2.8rem, 5vw, 5.1rem);
+        }
+
+        .watch-copy > p {
+            max-width: 490px;
+            margin: 30px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .watch-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 34px;
+        }
+
+        .watch-metrics span {
+            padding: 9px 13px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--white);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.69rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .statement {
+            position: relative;
+            overflow: hidden;
+            background: var(--coral);
+            color: #190b09;
+        }
+
+        .statement-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: end;
+            min-height: 520px;
+            padding: 94px 0;
+        }
+
+        .statement h2 {
+            max-width: 760px;
+        }
+
+        .statement p {
+            max-width: 430px;
+            margin: 0;
+            font-size: 1.08rem;
+            line-height: 1.75;
+        }
+
+        .statement-ring {
+            position: absolute;
+            top: -280px;
+            right: -170px;
+            width: 650px;
+            height: 650px;
+            border: 1px solid rgba(25, 11, 9, 0.24);
+            border-radius: 50%;
+        }
+
+        .statement-ring::before,
+        .statement-ring::after {
+            position: absolute;
+            border: inherit;
+            border-radius: inherit;
+            content: "";
+        }
+
+        .statement-ring::before { inset: 80px; }
+        .statement-ring::after { inset: 160px; }
+
+        .cta {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: end;
+            padding: 120px 0 96px;
+        }
+
+        .cta h2 {
+            margin-top: 18px;
+        }
+
+        .cta .button {
+            min-width: 180px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 28px 0 38px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.76rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration-color: rgba(255, 255, 255, 0.28);
+            text-underline-offset: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-top: 72px;
+            }
+
+            .hero-media {
+                min-height: 660px;
+            }
+
+            .section-head,
+            .statement-inner,
+            .watch-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .statement-inner {
+                gap: 40px;
+            }
+
+            .watch-copy {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .shell {
+                width: min(calc(100% - 30px), var(--max));
+            }
+
+            .nav {
+                min-height: 72px;
+            }
+
+            .nav-link {
+                font-size: 0.74rem;
+            }
+
+            .hero {
+                gap: 26px;
+                padding: 58px 0 64px;
+            }
+
+            h1 {
+                font-size: clamp(3.6rem, 19vw, 5.4rem);
+            }
+
+            .lede {
+                margin-top: 28px;
+            }
+
+            .actions {
+                align-items: stretch;
+                flex-direction: column;
+                margin-top: 34px;
+            }
+
+            .hero-media {
+                min-height: 590px;
+            }
+
+            .image-halo {
+                width: 440px;
+                height: 440px;
+            }
+
+            .hero-shot {
+                width: min(88vw, 350px);
+            }
+
+            .section {
+                padding: 84px 0;
+            }
+
+            .section-head {
+                gap: 24px;
+                margin-bottom: 48px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature,
+            .feature + .feature {
+                min-height: auto;
+                padding: 28px 0 34px;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .feature h3 {
+                margin-top: 36px;
+            }
+
+            .statement-inner {
+                min-height: auto;
+                padding: 82px 0;
+            }
+
+            .watch-section {
+                padding: 20px 0 84px;
+            }
+
+            .watch-panel {
+                min-height: auto;
+                padding: 40px 24px;
+                border-radius: 26px;
+            }
+
+            .watch-shot-wrap {
+                min-height: 450px;
+            }
+
+            .watch-shot {
+                width: min(100%, 310px);
+            }
+
+            .cta {
+                grid-template-columns: 1fr;
+                padding: 84px 0 70px;
+            }
+
+            footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="shell nav">
+        <a class="brand" href="/" aria-label="Singlelab home">
+            <img class="brand-icon" src="assets/runise-icon.png" width="30" height="30" alt="">
+            <span>Runise</span>
+        </a>
+        <a class="nav-link" href="#inside">Inside the run</a>
+    </header>
+
+    <main>
+        <section class="shell hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Built for the next kilometre</p>
+                <h1>Run with<br>less <span>noise.</span></h1>
+                <p class="lede">Runise keeps the essentials in view—your route, your rhythm, your progress—so the run stays yours.</p>
+                <div class="actions">
+                    <a class="button" href="#inside">Explore Runise</a>
+                    <a class="button secondary" href="https://github.com/julia-black/Runise" target="_blank" rel="noopener noreferrer">View the project</a>
+                </div>
+            </div>
+
+            <figure class="hero-media">
+                <div class="image-halo" aria-hidden="true"></div>
+                <img class="hero-shot" src="assets/runise-iphone.png" width="739" height="1600" alt="Runise recording an outdoor run on iPhone" fetchpriority="high">
+            </figure>
+        </section>
+
+        <section class="shell section" id="inside">
+            <div class="section-head">
+                <div class="section-index">01 / The essentials</div>
+                <h2>Everything that matters. Nothing that doesn’t.</h2>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature">
+                    <span class="feature-number">01</span>
+                    <h3>Live essentials</h3>
+                    <p>Keep distance, current pace, average pace, heart rate, and elapsed time visible while you run.</p>
+                </article>
+                <article class="feature">
+                    <span class="feature-number">02</span>
+                    <h3>Your history</h3>
+                    <p>Return to previous sessions and the details that help you understand your running rhythm.</p>
+                </article>
+                <article class="feature">
+                    <span class="feature-number">03</span>
+                    <h3>Progress, clearly</h3>
+                    <p>See statistics and milestones without getting buried under noise or needless comparison.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="shell watch-section">
+            <div class="watch-panel">
+                <div class="watch-shot-wrap">
+                    <img class="watch-shot" src="assets/runise-watch.png" width="647" height="1400" alt="Runise start and live workout screens on Apple Watch" loading="lazy">
+                </div>
+                <div class="watch-copy">
+                    <span class="section-index">02 / Apple Watch</span>
+                    <h2>On your wrist. In your rhythm.</h2>
+                    <p>Start an outdoor or indoor run from Apple Watch and keep the numbers that matter close—even when your phone stays away.</p>
+                    <div class="watch-metrics" aria-label="Apple Watch metrics">
+                        <span>Distance</span>
+                        <span>Pace</span>
+                        <span>Heart rate</span>
+                        <span>Time</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="statement">
+            <div class="statement-ring" aria-hidden="true"></div>
+            <div class="shell statement-inner">
+                <h2>Built around the run, not the dashboard.</h2>
+                <p>Good running tools should create clarity, then disappear. Runise is a focused companion for the route, the rhythm, and what comes next.</p>
+            </div>
+        </section>
+
+        <section class="shell cta">
+            <div>
+                <span class="section-index">Runise / Singlelab</span>
+                <h2>Take the next step.</h2>
+            </div>
+            <a class="button" href="https://github.com/julia-black/Runise" target="_blank" rel="noopener noreferrer">Open project</a>
+        </section>
+    </main>
+
+    <footer class="shell">
+        <span>© 2026 Singlelab. Made for forward motion.</span>
+        <a href="/">Back to singlelab.cat</a>
+    </footer>
+</body>
+</html>
