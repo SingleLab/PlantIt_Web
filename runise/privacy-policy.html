@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0d">
+    <meta name="description" content="Privacy Policy for Runise, the running companion for iPhone and Apple Watch.">
+    <link rel="canonical" href="https://singlelab.cat/runise/privacy-policy.html">
+    <link rel="icon" type="image/png" href="assets/runise-icon.png">
+    <link rel="apple-touch-icon" href="assets/runise-icon.png">
+    <title>Privacy Policy — Runise</title>
+    <style>
+        :root {
+            --ink: #0b0b0d;
+            --panel: #141418;
+            --white: #f8f6f2;
+            --muted: #aaa6a2;
+            --coral: #ff705f;
+            --coral-soft: #ff9386;
+            --line: rgba(255, 255, 255, 0.12);
+            --max: 920px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-width: 320px;
+            background:
+                radial-gradient(circle at 85% 4%, rgba(255, 112, 95, 0.14), transparent 25rem),
+                var(--ink);
+            color: var(--white);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--coral);
+            outline-offset: 4px;
+        }
+
+        .shell {
+            width: min(calc(100% - 40px), var(--max));
+            margin-inline: auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 88px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .brand img {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .back-link {
+            color: var(--muted);
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+
+        .back-link:hover {
+            color: var(--white);
+        }
+
+        .hero {
+            padding: 100px 0 76px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 26px;
+            color: var(--coral-soft);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 34px;
+            height: 2px;
+            background: var(--coral);
+            content: "";
+        }
+
+        h1 {
+            max-width: 780px;
+            margin: 0;
+            font-size: clamp(3.4rem, 9vw, 7rem);
+            font-weight: 650;
+            letter-spacing: -0.065em;
+            line-height: 0.95;
+        }
+
+        .intro {
+            max-width: 720px;
+            margin: 34px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.05rem, 2vw, 1.22rem);
+        }
+
+        .summary {
+            margin: 0 0 72px;
+            padding: 30px 32px;
+            border: 1px solid rgba(255, 112, 95, 0.3);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 112, 95, 0.1), rgba(255, 112, 95, 0.02));
+        }
+
+        .summary strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--coral-soft);
+            font-size: 0.76rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .summary p {
+            margin: 0;
+            color: var(--white);
+            font-size: 1.06rem;
+        }
+
+        .policy {
+            padding-bottom: 110px;
+        }
+
+        .policy section {
+            display: grid;
+            grid-template-columns: 64px minmax(0, 1fr);
+            gap: 28px;
+            padding: 52px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-number {
+            padding-top: 5px;
+            color: var(--coral);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.74rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.55rem, 4vw, 2.2rem);
+            letter-spacing: -0.035em;
+            line-height: 1.15;
+        }
+
+        h3 {
+            margin: 30px 0 8px;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+        }
+
+        p {
+            margin: 0 0 16px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 14px 0 0;
+            padding-left: 1.2rem;
+        }
+
+        li + li {
+            margin-top: 10px;
+        }
+
+        li::marker {
+            color: var(--coral);
+        }
+
+        .policy a {
+            color: var(--white);
+            text-decoration-color: rgba(255, 112, 95, 0.65);
+            text-underline-offset: 4px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 28px 0 38px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.76rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-underline-offset: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .shell {
+                width: min(calc(100% - 30px), var(--max));
+            }
+
+            .nav {
+                min-height: 72px;
+            }
+
+            .hero {
+                padding: 68px 0 54px;
+            }
+
+            .summary {
+                margin-bottom: 48px;
+                padding: 24px;
+            }
+
+            .policy section {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 40px 0;
+            }
+
+            footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="shell nav">
+        <a class="brand" href="index.html" aria-label="Runise home">
+            <img src="assets/runise-icon.png" width="30" height="30" alt="">
+            <span>Runise</span>
+        </a>
+        <a class="back-link" href="index.html">Back to Runise</a>
+    </header>
+
+    <main class="shell">
+        <header class="hero">
+            <p class="eyebrow">Your data. Your run.</p>
+            <h1>Privacy policy.</h1>
+            <p class="intro">Runise is designed to keep your running data on your devices and under your control.</p>
+        </header>
+
+        <aside class="summary" aria-label="Privacy summary">
+            <strong>The short version</strong>
+            <p>Runise has no accounts, advertising, analytics, tracking, or developer-operated servers. Your workout data stays on your iPhone, Apple Watch, and in Apple Health unless you choose to share it.</p>
+        </aside>
+
+        <article class="policy">
+            <section>
+                <span class="section-number">01</span>
+                <div>
+                    <h2>About this policy</h2>
+                    <p>This Privacy Policy explains how Runise handles information when you use the Runise app for iPhone and Apple Watch. It applies to the app and the Runise pages on singlelab.cat.</p>
+                    <p><strong>Effective date:</strong> September 9, 2026</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">02</span>
+                <div>
+                    <h2>Information Runise handles</h2>
+                    <p>Runise processes the information needed to record and present your runs:</p>
+                    <ul>
+                        <li><strong>Workout information:</strong> start and end time, workout type, duration, distance, pace, active energy, and workout identifiers.</li>
+                        <li><strong>Health information:</strong> heart rate and related workout measurements you authorize through Apple Health.</li>
+                        <li><strong>Location information:</strong> route coordinates and elevation for outdoor runs while a workout is active.</li>
+                        <li><strong>App history:</strong> completed runs, statistics, streaks, and awards derived from your workout records.</li>
+                    </ul>
+                    <p>Runise does not require an account and does not collect your name, email address, contacts, advertising identifier, or payment information.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">03</span>
+                <div>
+                    <h2>How information is used</h2>
+                    <p>The app uses this information only to provide its running features: recording workouts, showing live metrics and Live Activities, synchronizing an active workout between your iPhone and Apple Watch, displaying routes, restoring history, and calculating statistics and awards.</p>
+                    <p>Runise does not use your information for advertising, profiling, marketing, or cross-app tracking.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">04</span>
+                <div>
+                    <h2>Storage and sharing</h2>
+                    <h3>On your devices</h3>
+                    <p>Runise keeps a local workout history in an app database on your iPhone. During a workout, your iPhone and Apple Watch exchange workout status and metrics so both devices can show the same session.</p>
+                    <h3>Apple Health</h3>
+                    <p>With your permission, Runise reads authorized workout, distance, heart-rate, energy, speed, and route information from HealthKit and saves workouts recorded by Runise to Apple Health. Health information is handled under your Apple Health permissions and Apple’s privacy controls.</p>
+                    <h3>Sharing a run</h3>
+                    <p>If you choose to share a run, Runise creates a share image and presents the iOS share sheet. The app or service you select then handles that image under its own privacy policy. Runise can also save the image to Photos only when you request it and grant permission.</p>
+                    <p>Runise does not upload workout or health data to servers operated by Singlelab and does not sell or rent your information.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">05</span>
+                <div>
+                    <h2>Permissions and your choices</h2>
+                    <p>You control access through iOS, watchOS, and Apple Health settings. Depending on the features you use, Runise may request:</p>
+                    <ul>
+                        <li>Health access to read workout metrics and save completed runs.</li>
+                        <li>Location access to record outdoor routes while a workout is active.</li>
+                        <li>Photos access to save a run image when you choose that action.</li>
+                    </ul>
+                    <p>You may decline or revoke these permissions at any time. Some features will not work without the relevant permission.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">06</span>
+                <div>
+                    <h2>Retention and deletion</h2>
+                    <p>Local Runise records remain on your device until you delete them in the app or remove the app and its data. You can manage or delete information stored in Apple Health separately in the Health app. Removing a record from Runise does not automatically remove the corresponding record from Apple Health.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">07</span>
+                <div>
+                    <h2>Security and children</h2>
+                    <p>Runise relies on the security protections provided by iOS, watchOS, and HealthKit. No method of storage is completely secure, so keeping your devices and operating systems protected and up to date remains important.</p>
+                    <p>Runise is not directed to children under 13 and does not knowingly collect personal information from children through a developer-operated service.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-number">08</span>
+                <div>
+                    <h2>Changes and contact</h2>
+                    <p>This policy may be updated as Runise changes. The effective date above will be revised when an update is published.</p>
+                    <p>Questions about this policy can be sent to <a href="mailto:shevchenko.julia.96@gmail.com">shevchenko.julia.96@gmail.com</a>.</p>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="shell">
+        <span>© 2026 Singlelab.</span>
+        <div class="footer-links">
+            <a href="index.html">Runise</a>
+            <a href="/">singlelab.cat</a>
+        </div>
+    </footer>
+</body>
+</html>
